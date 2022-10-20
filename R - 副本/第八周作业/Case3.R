@@ -1,0 +1,15 @@
+setwd("C:/Users/Administrator/Desktop/R")
+library(openxlsx)
+Case3<-read.xlsx('mvcase5.xlsx','Case3',rowNames = T);head(Case3)
+summary(Case3)
+boxplot(Case3)
+rm<-apply(Case3,1,mean);rm
+barplot(rm,las = 3)
+cm<-apply(Case3,2,mean);cm
+barplot(cm,horiz = T)
+stars(Case3,key.loc = c(8,2))
+stars(Case3,draw.segments = T,key.loc = c(8,2))
+library(aplpack)
+faces(Case3)
+library(msaR)
+msa.andrews(Case3)
